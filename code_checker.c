@@ -1,6 +1,5 @@
 /*
 * Name : code_checker.c (ver1.0)
-* Last modified : 23-11-28(Tue)
 *
 * Function definitions needed to check code grammar
 */
