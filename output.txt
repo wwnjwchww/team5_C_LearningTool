@@ -1,0 +1,43 @@
+line 1 [19]: #include <stdio.h>
+line 2 [20]: #include <stdlib.h>
+line 3 [14]: struct Item {
+line 4 [16]:     int value; 
+line 5 [17]:     int weight; 
+line 6 [3]: };
+line 7 [44]: void sortItems(struct Item items[], int n);
+line 8 [62]: double fractionalKnapsack(struct Item items[], int n, int W);
+line 9 [13]: int main() {
+line 10 [16]:     int n = 3; 
+line 11 [17]:     int W = 50; 
+line 12 [60]:     struct Item items[] = {{60, 10}, {100, 20}, {120, 30}};
+line 13 [60]:     double maxTotalValue = fractionalKnapsack(items, n, W);
+line 14 [37]:     printf("%.2lf\n, maxTotalValue);
+line 15 [13]:     return 0
+line 16 [2]: }
+line 17 [45]: void sortItems(struct Item items[], int n) {
+line 18 [34]:     for (int i = 1; i < n; i++) {
+line 19 [36]:         struct Item key = items[i];
+line 20 [23]:         int j = i - 1;
+line 21 [99]:         while (j >= 0 && ((double)items[j].value / items[j].weight) < ((double)key.value / key.weigline 22 [7]: ht)) {
+line 23 [37]:             items[j + 1] = items[j];
+line 24 [23]:             j = j - 1;
+line 25 [10]:         }
+line 26 [28]:         items[j + 1] = key;
+line 27 [6]:     }
+line 28 [2]: }
+line 29 [63]: double fractionalKnapsack(struct Item items[], int n, int W) {
+line 30 [26]:     sortItems(items, n); 
+line 31 [28]:     double maxValue = 0.0; 
+line 32 [2]: 	
+line 33 [34]:     for (int i = 0; i < n; i++) {
+line 34 [28]:         if (W <= 0) break; 
+line 35 [36]:         if (items[i].weight <= W) {
+line 36 [40]:             maxValue += items[i].value;
+line 37 [34]:             W -= items[i].weight;
+line 38 [17]:         } else {
+line 39 [72]:             maxValue += ((double)items[i].value / items[i].weight) * W;
+line 40 [19]:             break;
+line 41 [10]:         }
+line 42 [6]:     }
+line 43 [21]:     return maxValue;
+line 44 [1]: }
