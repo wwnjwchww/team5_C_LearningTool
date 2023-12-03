@@ -272,7 +272,7 @@ void bracket(fileline arr[], int len)
       // => Applies to the case where the number of times '{' is found is less than the number of times '}' is found.
       // => You can see that there are parts where the parentheses are not opened properly.
         printf("line %d: } is greater\n", linea2[--a2]);
-        *p += 1; // content 1 ���ϰ� �ٽ� Ȯ��
+        *p += 1; // content 1 ´õÇÏ°í ´Ù½Ã È®ÀÎ
     }
     while (*(p + 1) > 0)
     { // Check the address of p + 1 in the same way as above.
